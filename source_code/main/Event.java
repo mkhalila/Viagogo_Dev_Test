@@ -3,6 +3,8 @@ package main;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -52,7 +54,38 @@ public class Event {
         location = locationIn;
     }
 
+    /**
+     * Retrieves the location of this event in a pair (x, y)
+     * @return Pair (x, y) as location of this event
+     */
     public Pair<Integer, Integer> getLocation() {
         return location;
+    }
+
+    /**
+     * Retrieves cheapest Ticket object for this Event.
+     * @return cheapest Ticket for this event, if there are 0 tickets then returns null
+     */
+    public Ticket getCheapestTicket() {
+        //If event has no ticket return null
+        if (tickets.size() == 0) {
+            return null;
+        }
+
+        //If event only has one ticket, return that ticket
+        if (tickets.size() == 1) {
+            return tickets.get(0);
+        }
+
+        //Find cheapest ticket
+        Ticket cheapest = tickets.get(0);
+        for (int i = 1; i < tickets.size(); ++i) {
+            if (tickets.get(i).getPrice() < cheapest.getPrice()) {
+                cheapest = tickets.get(i);
+            }
+        }
+
+        //Return cheapest Ticket
+        return cheapest;
     }
 }
