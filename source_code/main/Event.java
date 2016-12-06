@@ -23,9 +23,10 @@ public class Event {
      * Constructor for an Event: assigns unique id,
      * and creates a a random no. of Tickets
      */
-    public Event() {
+    public Event(Pair<Integer, Integer> locationIn) {
         assignID();
         generateTickets();
+        assignLocation(locationIn);
         System.out.println("Created an Event with ID: " + identifier
         + " and " + tickets.size() + " tickets");
     }
@@ -45,5 +46,13 @@ public class Event {
         for (int i = 0; i < new Random().nextInt(10); ++i) {
             tickets.add(new Ticket());
         }
+    }
+
+    private void assignLocation(Pair<Integer, Integer> locationIn) {
+        location = locationIn;
+    }
+
+    public Pair<Integer, Integer> getLocation() {
+        return location;
     }
 }
