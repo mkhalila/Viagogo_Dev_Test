@@ -21,9 +21,12 @@ public class Event {
     public Event() {
         assignID();
         generateTickets();
+        System.out.println("Created an Event with ID: " + identifier);
     }
 
     private void assignID() {
+        //Increments eventCounter then assigns ID of this Event
+        identifier = ++eventCounter;
     }
 
     private void generateTickets() {
