@@ -1,5 +1,7 @@
 package main;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,6 +16,8 @@ public class Event {
     private int identifier;
     //List of all the Ticket types for this event
     private ArrayList<Ticket> tickets;
+    //Location of the event in the world as an (int, int) pair
+    private Pair<Integer, Integer> location;
 
     /**
      * Constructor for an Event: assigns unique id,
