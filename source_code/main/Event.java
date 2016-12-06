@@ -37,11 +37,8 @@ public class Event {
         //Initialise Tickets list
         tickets = new ArrayList<>();
 
-        //Ensures that an Event has at least one Ticket
-        tickets.add(new Ticket());
-
-        //Generates up to 4 more Tickets for this Event
-        for (int i = 0; i < new Random().nextInt(5); ++i) {
+        //Generates 0 to 10 Tickets for this Event
+        for (int i = 0; i < new Random().nextInt(10); ++i) {
             tickets.add(new Ticket());
         }
     }
