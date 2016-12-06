@@ -14,6 +14,11 @@ public class World {
     private ArrayList<Event> events;
 
     public World(Range xRangeIn, Range yRangeIn) {
+        initWorldSize(xRangeIn, yRangeIn);
+    }
 
+    private void initWorldSize(Range xRangeIn, Range yRangeIn) {
+        xRange = xRangeIn;
+        yRange = yRangeIn;
     }
 }
