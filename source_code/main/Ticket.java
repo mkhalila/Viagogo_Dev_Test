@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Random;
+
 /**
  * A Class that represents a Ticket for an Event
  */
@@ -8,11 +10,10 @@ public class Ticket {
     private double price;
 
     /**
-     * The Constructor for a Ticket.
-     * @param priceIn Initialises price of this Ticket
+     * The Constructor for a Ticket with a randomly generated price between 0 - 100
      */
-    public Ticket(double priceIn) {
-        price = priceIn;
+    public Ticket() {
+        price = 100 * new Random().nextDouble();
         System.out.println("Created a Ticket with price: " + price);
     }
 
