@@ -18,11 +18,35 @@ class Range {
     }
 
     /**
+     * Returns minimum bound of range
+     * @return minimum integer bound of range
+     */
+    public int getMin() {
+        return min;
+    }
+
+    /**
+     * Returns maximum bound of range
+     * @return maximum integer bound of range
+     */
+    public int getMax() {
+        return max;
+    }
+
+    /**
      * Determines if a given number is within the bounds of the range
      * @param number
      * @return true if number is within the range, false if not
      */
     public boolean isInRange(int number){
         return (number >= min && number <= max);
+    }
+
+    /**
+     * Returns difference between maximum and minimum bounds of range
+     * @return
+     */
+    public int rangeSize() {
+        return max - min;
     }
 }
