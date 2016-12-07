@@ -1,8 +1,11 @@
 package main;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -86,5 +89,48 @@ public class World {
     public int manhatDistance(Pair<Integer, Integer> loc1, Pair<Integer, Integer> loc2) {
         //Manhattan distance = |(x1 - x2)| + |(y1 - y2)|
         return Math.abs(loc1.getKey() - loc2.getKey()) + Math.abs(loc1.getValue() - loc2.getValue());
+    }
+
+    /**
+     * Retrieves a list of the closest events to a given location
+     * @param howMany How many of the closest events are wanted e.g. 5 closest events
+     * @param fromLocation Where to find closest events from
+     * @return List of events closest to given location, of size specified by howMany
+     * @throws IndexOutOfBoundsException Total events in the world are less than how many were specified to retrieve
+     * @throws InvalidArgumentException Current location is not valid i.e. is "outside of the World"
+     */
+    public ArrayList<Event> getClosestEvents(int howMany, Pair<Integer, Integer> fromLocation)
+            throws IndexOutOfBoundsException, InvalidArgumentException {
+
+        //Total events in the world are less than how many were specified to retrieve
+        if (howMany > events.size()) throw new IndexOutOfBoundsException();
+
+        //Current location is not valid i.e. is "outside of the World"
+        if (!xRange.isInRange(fromLocation.getKey()) || !yRange.isInRange(fromLocation.getValue())) {
+            String[] arguments = {"Given Location is outside of world boundary"};
+            throw new InvalidArgumentException(arguments);
+        }
+
+        //Sort events list with first element as closest event to fromLocation
+        Collections.sort(events, new Comparator<Event>() {
+            @Override
+            public int compare(Event e1, Event e2) {
+                int fromToE1 = manhatDistance(fromLocation, e1.getLocation());
+                int fromToE2 = manhatDistance(fromLocation, e2.getLocation());
+
+                if(fromToE1 < fromToE2) {
+                   return -1;
+                }
+                else if (fromToE1 == fromToE2) {
+                    return 0;
+                }
+                else {
+                    return 1;
+                }
+            }
+        });
+
+        //Return sorted list of events - size based on how many events requested
+        return new ArrayList<>(events.subList(0, howMany+1));
     }
 }
