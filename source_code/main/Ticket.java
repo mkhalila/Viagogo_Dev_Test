@@ -14,7 +14,7 @@ public class Ticket {
      */
     public Ticket() {
         price = 100 * new Random().nextDouble();
-        System.out.println("Created a Ticket with price: " + price);
+        //System.out.println("Created a Ticket with price: " + price);
     }
 
     /**

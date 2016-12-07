@@ -29,8 +29,8 @@ public class Event {
         assignID();
         generateTickets();
         assignLocation(locationIn);
-        System.out.println("Created an Event with ID: " + identifier
-        + " and " + tickets.size() + " tickets");
+        //System.out.println("Created an Event with ID: " + identifier
+        //+ " and " + tickets.size() + " tickets");
     }
 
     //Assigns ID for this Event
