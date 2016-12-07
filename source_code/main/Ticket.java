@@ -24,4 +24,13 @@ public class Ticket {
     public double getPrice() {
         return price;
     }
+
+    /**
+     * toString method for Ticket, returns price of Ticket
+     * @return String representing this object
+     */
+    @Override
+    public String toString() {
+        return "Ticket{" + "price=" + price + '}';
+    }
 }

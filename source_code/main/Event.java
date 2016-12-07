@@ -88,4 +88,17 @@ public class Event {
         //Return cheapest Ticket
         return cheapest;
     }
+
+    /**
+     * toString() method for Event, returns id, location and cheapest ticket
+     * @return String containing ID, location and cheapest ticket
+     */
+    @Override
+    public String toString() {
+        return "Event{" +
+                "identifier=" + identifier +
+                ", cheapest ticket=" + getCheapestTicket() +
+                ", location=" + location +
+                '}';
+    }
 }
