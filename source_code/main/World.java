@@ -76,4 +76,15 @@ public class World {
         //No current event in the world has this location
         return true;
     }
+
+    /**
+     * Determines the distance between 2 locations given in Pair<Integer, Integer> form
+     * @param loc1 Location as Pair<Integer, Integer>
+     * @param loc2 Location as Pair<Integer, Integer>
+     * @return Manhattan distance between the 2 provided locations
+     */
+    public int manhatDistance(Pair<Integer, Integer> loc1, Pair<Integer, Integer> loc2) {
+        //Manhattan distance = |(x1 - x2)| + |(y1 - y2)|
+        return Math.abs(loc1.getKey() - loc2.getKey()) + Math.abs(loc1.getValue() - loc2.getValue());
+    }
 }
