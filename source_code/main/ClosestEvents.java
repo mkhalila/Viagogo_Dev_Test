@@ -2,6 +2,7 @@ package main;
 
 import javafx.util.Pair;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -15,7 +16,11 @@ public class ClosestEvents {
 
         Pair<Integer, Integer> userLoc = retrieveUserLocation(world);
 
-        System.out.println(userLoc.getKey() + " " + userLoc.getValue());
+        ArrayList<Event> closestEvents = world.getClosestEvents(10, userLoc);
+
+        for (Event e : closestEvents) {
+            System.out.println(e);
+        }
     }
 
     //Keeps asking the user for their location until a valid location is entered
