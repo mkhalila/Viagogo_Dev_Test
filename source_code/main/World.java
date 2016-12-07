@@ -98,19 +98,12 @@ public class World {
      * @param fromLocation Where to find closest events from
      * @return List of events closest to given location, of size specified by howMany
      * @throws IndexOutOfBoundsException Total events in the world are less than how many were specified to retrieve
-     * @throws InvalidArgumentException Current location is not valid i.e. is "outside of the World"
      */
     public ArrayList<Event> getClosestEvents(int howMany, Pair<Integer, Integer> fromLocation)
-            throws IndexOutOfBoundsException, InvalidArgumentException {
+            throws IndexOutOfBoundsException {
 
         //Total events in the world are less than how many were specified to retrieve
         if (howMany > events.size()) throw new IndexOutOfBoundsException();
-
-        //Current location is not valid i.e. is "outside of the World"
-        if (!xRange.isInRange(fromLocation.getKey()) || !yRange.isInRange(fromLocation.getValue())) {
-            String[] arguments = {"Given Location is outside of world boundary"};
-            throw new InvalidArgumentException(arguments);
-        }
 
         //Sort events list with first element as closest event to fromLocation
         Collections.sort(events, new Comparator<Event>() {
@@ -133,5 +126,14 @@ public class World {
 
         //Return sorted list of events - size based on how many events requested
         return new ArrayList<>(events.subList(0, howMany+1));
+    }
+
+    /**
+     * Determines if a location is within the world's bounds
+     * @param location Pair(x, y) denoting location
+     * @return true if location is valid, false otherwise
+     */
+    public boolean isLocationValid(Pair<Integer, Integer> location) {
+        return xRange.isInRange(location.getKey()) && yRange.isInRange(location.getValue());
     }
 }

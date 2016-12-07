@@ -12,14 +12,22 @@ public class ClosestEvents {
     public static void main(String[] args) {
         World world = new World(new Range(-10, 10), new Range(-10, 10));
 
+        Pair<Integer, Integer> userLoc = retrieveUserLocation();
+
+    }
+
+    //Keeps asking the user for their location until a valid location is entered
+    //A Location is valid if it is within the world's boundaries
+    //The given location is converted to a pair (x, y) and returned
+    private static Pair<Integer,Integer> retrieveUserLocation() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter your location (e.g. \"4,2\"):");
+        System.out.print("Enter your location (e.g. \"4,2\"): ");
         String userInput = scanner.nextLine();
-        Pair<Integer, Integer> userLoc = new Pair<>(Integer.parseInt(String.valueOf(userInput.charAt(0))),
-                Integer.parseInt(String.valueOf(userInput.charAt(2))));
 
+        userInput = userInput.replaceAll("[^0-9|^,]", "");
+        String[] loc = userInput.split(",");
 
-
+        return new Pair<>(Integer.parseInt(loc[0]), Integer.parseInt(loc[1]));
     }
 }
