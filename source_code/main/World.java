@@ -125,7 +125,7 @@ public class World {
         });
 
         //Return sorted list of events - size based on how many events requested
-        return new ArrayList<>(events.subList(0, howMany+1));
+        return new ArrayList<>(events.subList(0, howMany));
     }
 
     /**
