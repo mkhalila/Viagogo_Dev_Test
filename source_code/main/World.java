@@ -28,6 +28,7 @@ public class World {
     public World(Range xRangeIn, Range yRangeIn) {
         initWorldSize(xRangeIn, yRangeIn);
         generateEvents();
+        System.out.println("\nCreated a World with " + events.size() + " events.");
     }
 
     private void initWorldSize(Range xRangeIn, Range yRangeIn) {

@@ -6,6 +6,6 @@ package main;
  */
 public class ClosestEvents {
     public static void main(String[] args) {
-
+        World world = new World(new Range(-10, 10), new Range(-10, 10));
     }
 }
