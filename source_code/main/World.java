@@ -134,6 +134,7 @@ public class World {
      * @return true if location is valid, false otherwise
      */
     public boolean isLocationValid(Pair<Integer, Integer> location) {
+        System.out.println(xRange.isInRange(location.getKey()) && yRange.isInRange(location.getValue()));
         return xRange.isInRange(location.getKey()) && yRange.isInRange(location.getValue());
     }
 }
