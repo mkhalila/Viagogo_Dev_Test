@@ -40,8 +40,8 @@ public class ClosestEvents {
         System.out.print("Enter your location (e.g. \"4,2\"): ");
         String userInput = scanner.nextLine();
 
-        //Convert to desired format - keeping only numbers and comma
-        userInput = userInput.replaceAll("[^0-9|^,]", "");
+        //Convert to desired format - keeping only numbers, comma and negatives
+        userInput = userInput.replaceAll("[^0-9|^,|^-]", "");
         String[] loc = userInput.split(",");
 
         //Return location as pair(x,y)
