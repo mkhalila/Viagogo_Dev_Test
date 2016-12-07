@@ -19,5 +19,7 @@ public class ClosestEvents {
         Pair<Integer, Integer> userLoc = new Pair<>(Integer.parseInt(String.valueOf(userInput.charAt(0))),
                 Integer.parseInt(String.valueOf(userInput.charAt(2))));
 
+
+
     }
 }
