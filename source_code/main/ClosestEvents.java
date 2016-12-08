@@ -13,18 +13,14 @@ public class ClosestEvents {
         //Initialise a world from -10 to 10 dimensions in both x and y axis
         World world = new World(new Range(-10, 10), new Range(-10, 10));
 
-        //Retrieves user locatiom
+        //Retrieves user location
         Pair<Integer, Integer> userLoc = retrieveUserLocation(world);
 
-        //Retrieves closest events to the user provided
+        //Retrieves closest events to the user provided location
         ArrayList<Event> closestEvents = world.getClosestEvents(10, userLoc);
 
-        System.out.println("\nClosest Events: " );
-
         //Prints the closest events
-        for (Event e : closestEvents) {
-            System.out.println(e + " - Distance: " + world.manhatDistance(userLoc, e.getLocation()));
-        }
+        printClosestEvents(world, userLoc, closestEvents);
     }
 
     //Keeps asking the user for their location until a valid location is entered
@@ -56,5 +52,12 @@ public class ClosestEvents {
         //Return location as pair(x,y)
         return new Pair<>(Integer.parseInt(loc[0]),
                 Integer.parseInt(loc[1]));
+    }
+
+    //Prints all closest events in provided list of closest events
+    private static void printClosestEvents(World world, Pair<Integer, Integer> userLoc, ArrayList<Event> closestEvents) {
+        for (Event e : closestEvents) {
+            System.out.println(e + " - Distance: " + world.manhatDistance(userLoc, e.getLocation()));
+        }
     }
 }
