@@ -14,14 +14,17 @@ public class ClosestEvents {
         //Initialise a world from -10 to 10 dimensions in both x and y axis
         World world = new World(new Range(-10, 10), new Range(-10, 10));
 
+        //Retrieves user locatiom
         Pair<Integer, Integer> userLoc = retrieveUserLocation(world);
 
+        //Retrieves closest events to the user provided
         ArrayList<Event> closestEvents = world.getClosestEvents(10, userLoc);
 
         System.out.println("Closest Events: " );
 
+        //Prints the closest events
         for (Event e : closestEvents) {
-            System.out.println(e);
+            System.out.println(e + " Distance: " + world.manhatDistance(userLoc, e.getLocation()));
         }
     }
 
