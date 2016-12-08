@@ -106,16 +106,20 @@ public class World {
         Collections.sort(events, new Comparator<Event>() {
             @Override
             public int compare(Event e1, Event e2) {
+                //Calculate distances of an event from given location
                 int fromToE1 = manhatDistance(fromLocation, e1.getLocation());
                 int fromToE2 = manhatDistance(fromLocation, e2.getLocation());
 
                 if(fromToE1 < fromToE2) {
+                    //Puts event 1 ahead of event 2
                    return -1;
                 }
                 else if (fromToE1 == fromToE2) {
+                    //Both same distance - no need to swap
                     return 0;
                 }
                 else {
+                    //Puts event 2 ahead of event 1
                     return 1;
                 }
             }

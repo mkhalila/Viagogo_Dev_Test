@@ -92,7 +92,11 @@ public class Event {
      */
     @Override
     public String toString() {
-        return "Event " + identifier + " at (" + location.getKey() + ", " + location.getValue() +
-                ") - $" + getCheapestTicket();
+        String toReturn = "Event " + identifier + " at (" + location.getKey()
+                + ", " + location.getValue() + ")";
+
+        if (getCheapestTicket() == null) return toReturn + " - No Tickets for this Event";
+
+        else return toReturn + " - $" + getCheapestTicket();
     }
 }
