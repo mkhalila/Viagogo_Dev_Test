@@ -17,7 +17,7 @@ public class ClosestEvents {
         Pair<Integer, Integer> userLoc = retrieveUserLocation(world);
 
         //Retrieves closest events to the user provided location
-        ArrayList<Event> closestEvents = world.getClosestEvents(10, userLoc);
+        ArrayList<Event> closestEvents = world.getClosestEvents(5, userLoc);
 
         //Prints the closest events
         printClosestEvents(world, userLoc, closestEvents);
@@ -46,6 +46,7 @@ public class ClosestEvents {
         String userInput = scanner.nextLine();
 
         //Convert to desired format - keeping only numbers, comma and negatives
+        //using regular expressions
         userInput = userInput.replaceAll("[^0-9|^,|^-]", "");
         String[] loc = userInput.split(",");
 
@@ -56,6 +57,9 @@ public class ClosestEvents {
 
     //Prints all closest events in provided list of closest events
     private static void printClosestEvents(World world, Pair<Integer, Integer> userLoc, ArrayList<Event> closestEvents) {
+        System.out.println("\nClosest Events to (" +
+                userLoc.getKey() + ", " + userLoc.getValue() + ")");
+
         for (Event e : closestEvents) {
             System.out.println(e + " - Distance: " + world.manhatDistance(userLoc, e.getLocation()));
         }
