@@ -1,5 +1,6 @@
 package main;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 /**
@@ -13,8 +14,9 @@ public class Ticket {
      * The Constructor for a Ticket with a randomly generated price between 0 - 100
      */
     public Ticket() {
-        price = 100 * new Random().nextDouble();
-        //System.out.println("Created a Ticket with price: " + price);
+        //Generates random price between 0-100 and converts it to 2 decimal places
+        DecimalFormat priceFormat = new DecimalFormat("###.##");
+        price = Double.valueOf(priceFormat.format(100 * new Random().nextDouble()));
     }
 
     /**
