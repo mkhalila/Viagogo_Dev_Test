@@ -97,13 +97,12 @@ public class World {
      * @param howMany How many of the closest events are wanted e.g. 5 closest events
      * @param fromLocation Where to find closest events from
      * @return List of events closest to given location, of size specified by howMany
-     * @throws IndexOutOfBoundsException Total events in the world are less than how many were specified to retrieve
      */
-    public ArrayList<Event> getClosestEvents(int howMany, Pair<Integer, Integer> fromLocation)
-            throws IndexOutOfBoundsException {
+    public ArrayList<Event> getClosestEvents(int howMany, Pair<Integer, Integer> fromLocation) {
 
-        //Total events in the world are less than how many were specified to retrieve
-        if (howMany > events.size()) throw new IndexOutOfBoundsException();
+        //If a request is made for more Events than the number that exist in the World
+        //Then only how many that exist are returned
+        if (howMany > events.size()) howMany = events.size();
 
         //Sort events list with first element as closest event to fromLocation
         Collections.sort(events, new Comparator<Event>() {

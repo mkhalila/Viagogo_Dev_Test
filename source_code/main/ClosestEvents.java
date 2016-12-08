@@ -20,11 +20,11 @@ public class ClosestEvents {
         //Retrieves closest events to the user provided
         ArrayList<Event> closestEvents = world.getClosestEvents(10, userLoc);
 
-        System.out.println("Closest Events: " );
+        System.out.println("\nClosest Events: " );
 
         //Prints the closest events
         for (Event e : closestEvents) {
-            System.out.println(e + " Distance: " + world.manhatDistance(userLoc, e.getLocation()));
+            System.out.println(e + " - Distance: " + world.manhatDistance(userLoc, e.getLocation()));
         }
     }
 
