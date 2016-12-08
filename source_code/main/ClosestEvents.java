@@ -18,6 +18,8 @@ public class ClosestEvents {
 
         ArrayList<Event> closestEvents = world.getClosestEvents(10, userLoc);
 
+        System.out.println("Closest Events: " );
+
         for (Event e : closestEvents) {
             System.out.println(e);
         }

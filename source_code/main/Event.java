@@ -95,10 +95,7 @@ public class Event {
      */
     @Override
     public String toString() {
-        return "Event{" +
-                "identifier=" + identifier +
-                ", cheapest ticket=" + getCheapestTicket() +
-                ", location=" + location +
-                '}';
+        return "Event " + identifier + " at (" + location.getKey() + ", " + location.getValue() +
+                ") - $" + getCheapestTicket();
     }
 }
