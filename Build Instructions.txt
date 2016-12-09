@@ -1,0 +1,7 @@
+Build Instructions:
+
+1. Open CMD/Terminal
+2. Navigate to the "source_code" directory  using "cd source_code"
+3. Ensure javac and java are installed on the system
+4. Run "javac ClosestEvents.java"
+5. Run "java ClosestEvents"
