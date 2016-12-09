@@ -1,5 +1,4 @@
 import main.Location;
-import main.Range;
 import main.World;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.Scanner;
 public class ClosestEvents {
     public static void main(String[] args) {
         //Initialise a world from -10 to 10 dimensions in both x and y axis
-        World world = new World(new Range(-10, 10), new Range(-10, 10));
+        World world = new World(-10, 10, -10, 10);
 
         //Retrieves user location
         Location userLoc = retrieveUserLocation(world);

@@ -23,8 +23,8 @@ public class World {
      * @param xRangeIn x dimension range of world e.g. -10 to 10
      * @param yRangeIn y dimension range of world e.g. -10 to 10
      */
-    public World(Range xRangeIn, Range yRangeIn) {
-        initWorldSize(xRangeIn, yRangeIn);
+    public World(int xMin, int xMax, int yMin, int yMax) {
+        initWorldSize(new Range(xMin, xMax), new Range(yMin, yMax));
         generateLocations();
     }
 
@@ -136,5 +136,21 @@ public class World {
      */
     public boolean isLocationValid(Location location) {
         return xRange.isInRange(location.getX()) && yRange.isInRange(location.getY());
+    }
+
+    /**
+     * Returns x axis dimensions for this World
+     * @return Range object: x axis dim. of World
+     */
+    public Range getxRange() {
+        return xRange;
+    }
+
+    /**
+     * Returns y axis dimensions for this World
+     * @return Range object: y axis dim. of World
+     */
+    public Range getyRange() {
+        return yRange;
     }
 }
