@@ -21,7 +21,7 @@ public class Range {
      * Returns minimum bound of range
      * @return minimum integer bound of range
      */
-    int getMin() {
+    public int getMin() {
         return min;
     }
 
@@ -29,7 +29,7 @@ public class Range {
      * Returns maximum bound of range
      * @return maximum integer bound of range
      */
-    int getMax() {
+    public int getMax() {
         return max;
     }
 
@@ -38,15 +38,15 @@ public class Range {
      * @param number number to check
      * @return true if number is within the range, false if not
      */
-    boolean isInRange(int number){
+    public boolean isInRange(int number){
         return (number >= min && number <= max);
     }
 
     /**
-     * Returns difference between maximum and minimum bounds of range
+     * Returns absolute difference between maximum and minimum bounds of range
      * @return Size of this range
      */
-    int rangeSize() {
-        return max - min;
+    public int rangeSize() {
+        return Math.abs(max - min);
     }
 }
