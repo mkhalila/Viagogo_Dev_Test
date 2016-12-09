@@ -84,6 +84,14 @@ public class Event {
     }
 
     /**
+     * Returns the identifier for this Event
+     * @return identifier of this event
+     */
+    public int getIdentifier() {
+        return identifier;
+    }
+
+    /**
      * toString() method for Event, returns id, location and cheapest ticket
      * @return String containing ID, location and cheapest ticket
      */
