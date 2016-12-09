@@ -20,10 +20,15 @@ public class World {
 
     /**
      * Constructor for a World object. Initialises size of world, and generates the Locations
-     * @param xRangeIn x dimension range of world e.g. -10 to 10
-     * @param yRangeIn y dimension range of world e.g. -10 to 10
+     * @param xMin Minimum x dimension value
+     * @param xMax Maximum x dimension value
+     * @param yMin Minimum y dimension value
+     * @param yMax Maximum y dimension value
      */
     public World(int xMin, int xMax, int yMin, int yMax) {
+        //Resets no. of Events created to 0
+        Event.resetEventCounter();
+
         initWorldSize(new Range(xMin, xMax), new Range(yMin, yMax));
         generateLocations();
     }

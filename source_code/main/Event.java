@@ -92,6 +92,14 @@ public class Event {
     }
 
     /**
+     * Resets counter for how many Event instances created to 0
+     * Used after Tests are run
+     */
+    public static void resetEventCounter() {
+        Event.eventCounter = 0;
+    }
+
+    /**
      * toString() method for Event, returns id, location and cheapest ticket
      * @return String containing ID, location and cheapest ticket
      */

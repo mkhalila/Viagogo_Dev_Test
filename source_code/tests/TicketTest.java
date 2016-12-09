@@ -5,8 +5,6 @@ import org.junit.Test;
 
 import java.text.DecimalFormat;
 
-import static org.junit.Assert.*;
-
 /**
  * Test to see if a Ticket has a randomly generated price to 2 decimal places
  */
@@ -20,7 +18,8 @@ public class TicketTest {
         double price = Double.valueOf(df.format(ticket.getPrice()));
 
         //Checks if pre and post formatted values are same
-        assertEquals(price, ticket.getPrice());
+        if (price != ticket.getPrice())
+            throw new Exception();
     }
 
 }

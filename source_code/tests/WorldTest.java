@@ -38,7 +38,7 @@ public class WorldTest {
      */
     @Test
     public void getClosestEvents() throws Exception {
-        ArrayList<Location> locations = new ArrayList<>();
+        ArrayList<Location> locations = world.getClosestEvents(5, loc1);
 
         //Ensures that enough closest events are retrieved
         while (locations.size() < 5) {

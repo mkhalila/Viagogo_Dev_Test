@@ -1,5 +1,9 @@
 import main.Location;
 import main.World;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+import tests.TestSuite;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,6 +14,9 @@ import java.util.Scanner;
  */
 public class ClosestEvents {
     public static void main(String[] args) {
+
+        runTests();
+
         //Initialise a world from -10 to 10 dimensions in both x and y axis
         World world = new World(-10, 10, -10, 10);
 
@@ -52,6 +59,7 @@ public class ClosestEvents {
 
         //If 2 co-ordinates have not been entered
         if (loc.length != 2) return promptUserLocation();
+        if ((loc[0].equals("")) || (loc[1].equals(""))) return promptUserLocation();
 
         //Return location
         return new Location(Integer.parseInt(loc[0]),
@@ -65,6 +73,19 @@ public class ClosestEvents {
 
         for (Location l : closestEvents) {
             System.out.println(l + " - Distance: " + world.manhatDistance(userLoc, l));
+        }
+    }
+
+    //Runs JUnit Test Suite from test package
+    private static void runTests() {
+        Result result = JUnitCore.runClasses(TestSuite.class);
+
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
+
+        if (result.wasSuccessful()) {
+            System.out.println("All Tests successfully completed.");
         }
     }
 }
