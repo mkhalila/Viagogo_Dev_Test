@@ -34,10 +34,23 @@ public class Location {
     }
 
     /**
+     * Sets the Event at this Location to the given Event
+     * @param eventIn Event object
+     */
+    public void setEvent(Event eventIn) {
+        event = eventIn;
+    }
+
+    /**
      * Gets the Event taking place at this Location
      * @return Event taking place at this Location
      */
     public Event getEvent() {
         return event;
+    }
+
+    @Override
+    public String toString() {
+        return "" + event;
     }
 }

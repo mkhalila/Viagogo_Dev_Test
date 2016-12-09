@@ -14,10 +14,10 @@ public class ClosestEvents {
         World world = new World(new Range(-10, 10), new Range(-10, 10));
 
         //Retrieves user location
-        Pair<Integer, Integer> userLoc = retrieveUserLocation(world);
+        Location userLoc = retrieveUserLocation(world);
 
-        //Retrieves closest events to the user provided location
-        ArrayList<Event> closestEvents = world.getClosestEvents(5, userLoc);
+        //Retrieves closest locations (with their events) to the user provided location
+        ArrayList<Location> closestEvents = world.getClosestEvents(5, userLoc);
 
         //Prints the closest events
         printClosestEvents(world, userLoc, closestEvents);
@@ -25,9 +25,9 @@ public class ClosestEvents {
 
     //Keeps asking the user for their location until a valid location is entered
     //A Location is valid if it is within the world's boundaries
-    //The given location is converted to a pair (x, y) and returned
-    private static Pair<Integer,Integer> retrieveUserLocation(World world) {
-        Pair<Integer, Integer> userLoc = promptUserLocation();
+    //The given location is converted to a Location object and returned
+    private static Location retrieveUserLocation(World world) {
+        Location userLoc = promptUserLocation();
 
         while (!world.isLocationValid(userLoc)){
             userLoc = promptUserLocation();
@@ -38,7 +38,7 @@ public class ClosestEvents {
 
     //Prompts the user for a location and converts it to the desired format
     //Returns a pair(x,y) for the location
-    private static Pair<Integer, Integer> promptUserLocation() {
+    private static Location promptUserLocation() {
         Scanner scanner = new Scanner(System.in);
 
         //Prompt user & store user input
@@ -50,18 +50,21 @@ public class ClosestEvents {
         userInput = userInput.replaceAll("[^0-9|^,|^-]", "");
         String[] loc = userInput.split(",");
 
-        //Return location as pair(x,y)
-        return new Pair<>(Integer.parseInt(loc[0]),
+        //If 2 co-ordinates have not been entered
+        if (loc.length != 2) return promptUserLocation();
+
+        //Return location
+        return new Location(Integer.parseInt(loc[0]),
                 Integer.parseInt(loc[1]));
     }
 
-    //Prints all closest events in provided list of closest events
-    private static void printClosestEvents(World world, Pair<Integer, Integer> userLoc, ArrayList<Event> closestEvents) {
+    //Prints all closest events in provided list of closest locations
+    private static void printClosestEvents(World world, Location userLoc, ArrayList<Location> closestEvents) {
         System.out.println("\nClosest Events to (" +
-                userLoc.getKey() + ", " + userLoc.getValue() + ")");
+                userLoc.getX() + ", " + userLoc.getY() + ")");
 
-        for (Event e : closestEvents) {
-            System.out.println(e + " - Distance: " + world.manhatDistance(userLoc, e.getLocation()));
+        for (Location l : closestEvents) {
+            System.out.println(l + " - Distance: " + world.manhatDistance(userLoc, l));
         }
     }
 }

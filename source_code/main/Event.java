@@ -15,19 +15,17 @@ public class Event {
     private int identifier;
     //List of all the Ticket types for this event
     private ArrayList<Ticket> tickets;
-    //Location of the event in the world as an (int, int) pair
-    private Pair<Integer, Integer> location;
+    //Location of the event in the world
+    private Location location;
 
     /**
      * Constructor for an Event: assigns unique id,
      * and creates a a random no. of Tickets
      */
-    public Event(Pair<Integer, Integer> locationIn) {
+    public Event(Location locationIn) {
         assignID();
         generateTickets();
         assignLocation(locationIn);
-        //System.out.println("Created an Event with ID: " + identifier
-        //+ " and " + tickets.size() + " tickets");
     }
 
     //Assigns ID for this Event
@@ -47,7 +45,7 @@ public class Event {
         }
     }
 
-    private void assignLocation(Pair<Integer, Integer> locationIn) {
+    private void assignLocation(Location locationIn) {
         location = locationIn;
     }
 
@@ -55,7 +53,7 @@ public class Event {
      * Retrieves the location of this event in a pair (x, y)
      * @return Pair (x, y) as location of this event
      */
-    public Pair<Integer, Integer> getLocation() {
+    public Location getLocation() {
         return location;
     }
 
@@ -92,8 +90,8 @@ public class Event {
      */
     @Override
     public String toString() {
-        String toReturn = "Event " + identifier + " at (" + location.getKey()
-                + ", " + location.getValue() + ")";
+        String toReturn = "Event " + identifier + " at (" + location.getX()
+                + ", " + location.getY() + ")";
 
         if (getCheapestTicket() == null) return toReturn + " - No Tickets for this Event";
 
