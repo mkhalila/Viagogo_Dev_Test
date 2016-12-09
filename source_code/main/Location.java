@@ -3,7 +3,7 @@ package main;
 /**
  * Class that represents a integer co-ordinate location in the world
  */
-class Location {
+public class Location {
     private int x, y;
     private Event event;
 
@@ -12,7 +12,7 @@ class Location {
      * @param xIn x Co-ordinate of this Location
      * @param yIn y Co-ordinate of this Location
      */
-    Location(int xIn, int yIn) {
+    public Location(int xIn, int yIn) {
         x = xIn;
         y = yIn;
     }
@@ -21,7 +21,7 @@ class Location {
      * Gets x Co-ordinate of this Location
      * @return x Co-ordinate of this Location as integer
      */
-    int getX() {
+    public int getX() {
         return x;
     }
 
@@ -29,7 +29,7 @@ class Location {
      * Gets y Co-ordinate of this Location
      * @return y Co-ordinate of this Location as integer
      */
-    int getY() {
+    public int getY() {
         return y;
     }
 

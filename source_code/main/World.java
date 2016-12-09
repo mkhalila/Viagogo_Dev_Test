@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * World contains Locations, and Locations contain Events: This was done to make the code scalable
  * E.g. If requirements change and multiple events take place at a single location
  */
-class World {
+public class World {
     //X axis of world dimension e.g. -10 to 10
     private Range xRange;
     //Y axis of world dimension e.g. -10 to 10
@@ -23,7 +23,7 @@ class World {
      * @param xRangeIn x dimension range of world e.g. -10 to 10
      * @param yRangeIn y dimension range of world e.g. -10 to 10
      */
-    World(Range xRangeIn, Range yRangeIn) {
+    public World(Range xRangeIn, Range yRangeIn) {
         initWorldSize(xRangeIn, yRangeIn);
         generateLocations();
     }
@@ -88,7 +88,7 @@ class World {
      * @param loc2 to location as Location
      * @return Manhattan distance between the 2 provided locations
      */
-    int manhatDistance(Location loc1, Location loc2) {
+    public int manhatDistance(Location loc1, Location loc2) {
         //Manhattan distance = |(x1 - x2)| + |(y1 - y2)|
         return Math.abs(loc1.getX() - loc2.getX()) + Math.abs(loc1.getY() - loc2.getY());
     }
@@ -99,7 +99,7 @@ class World {
      * @param fromLocation Where to find closest events from
      * @return List of locations closest to given location, of size specified by howMany
      */
-    ArrayList<Location> getClosestEvents(int howMany, Location fromLocation) {
+    public ArrayList<Location> getClosestEvents(int howMany, Location fromLocation) {
 
         //If a request is made for more Events than the number that exist in the World
         //Then only how many that exist are returned
@@ -134,7 +134,7 @@ class World {
      * @param location Location object
      * @return true if location is valid, false otherwise
      */
-    boolean isLocationValid(Location location) {
+    public boolean isLocationValid(Location location) {
         return xRange.isInRange(location.getX()) && yRange.isInRange(location.getY());
     }
 }

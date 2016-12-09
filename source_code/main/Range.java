@@ -3,7 +3,7 @@ package main;
 /**
  * Class that represents a Range of integers. Used by the World class - Package protected
  */
-class Range {
+public class Range {
     //Bounds of the Range object
     private int min, max;
 
@@ -12,7 +12,7 @@ class Range {
      * @param minIn Minimum bound of this range
      * @param maxIn Maximum bound of this range
      */
-    Range(int minIn, int maxIn) {
+    public Range(int minIn, int maxIn) {
         min = minIn;
         max = maxIn;
     }

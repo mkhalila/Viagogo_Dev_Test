@@ -1,4 +1,6 @@
-package main;
+import main.Location;
+import main.Range;
+import main.World;
 
 import java.util.ArrayList;
 import java.util.Scanner;
