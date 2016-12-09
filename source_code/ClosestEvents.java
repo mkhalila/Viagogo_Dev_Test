@@ -14,7 +14,6 @@ import java.util.Scanner;
  */
 public class ClosestEvents {
     public static void main(String[] args) {
-
         runTests();
 
         //Initialise a world from -10 to 10 dimensions in both x and y axis
