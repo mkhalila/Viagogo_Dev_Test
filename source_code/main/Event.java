@@ -61,7 +61,7 @@ public class Event {
      * Retrieves cheapest Ticket object for this Event.
      * @return cheapest Ticket for this event, if there are 0 tickets then returns null
      */
-    public Ticket getCheapestTicket() {
+    private Ticket getCheapestTicket() {
         //If event has no ticket return null
         if (tickets.size() == 0) {
             return null;
