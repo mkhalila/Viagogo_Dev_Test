@@ -26,7 +26,6 @@ class World {
     World(Range xRangeIn, Range yRangeIn) {
         initWorldSize(xRangeIn, yRangeIn);
         generateLocations();
-        System.out.println("\nCreated a World with " + locations.size() + " events.");
     }
 
     //Sets values of world size
@@ -135,7 +134,7 @@ class World {
      * @param location Location object
      * @return true if location is valid, false otherwise
      */
-    public boolean isLocationValid(Location location) {
+    boolean isLocationValid(Location location) {
         return xRange.isInRange(location.getX()) && yRange.isInRange(location.getY());
     }
 }

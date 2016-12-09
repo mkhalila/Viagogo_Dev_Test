@@ -60,7 +60,7 @@ public class ClosestEvents {
     //Prints all closest events in provided list of closest locations
     private static void printClosestEvents(World world, Location userLoc, ArrayList<Location> closestEvents) {
         System.out.println("\nClosest Events to (" +
-                userLoc.getX() + ", " + userLoc.getY() + ")");
+                userLoc.getX() + ", " + userLoc.getY() + "):");
 
         for (Location l : closestEvents) {
             System.out.println(l + " - Distance: " + world.manhatDistance(userLoc, l));
