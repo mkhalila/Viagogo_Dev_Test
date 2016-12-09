@@ -37,10 +37,21 @@ public class Location {
      * Sets the Event at this Location to the given Event
      * @param eventIn Event object
      */
-    void setEvent(Event eventIn) {
+    public void setEvent(Event eventIn) {
         event = eventIn;
     }
 
+    /**
+     * Get's the Event taking place at this Location
+     */
+    public Event getEvent() {
+        return event;
+    }
+
+    /**
+     * toString method for Location object
+     * @return toString of the event at this location
+     */
     @Override
     public String toString() {
         return "" + event;
