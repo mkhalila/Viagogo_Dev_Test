@@ -6,16 +6,16 @@ import java.util.Random;
 /**
  * A Class that represents a Ticket for an Event
  */
-class Ticket {
+public class Ticket {
     //The price for the Ticket
     private double price;
 
     /**
      * The Constructor for a Ticket with a randomly generated price between 0 - 100
      */
-    Ticket() {
+    public Ticket() {
         //Generates random price between 0-100 and converts it to 2 decimal places
-        DecimalFormat priceFormat = new DecimalFormat("###.##");
+        DecimalFormat priceFormat = new DecimalFormat(".##");
         price = Double.valueOf(priceFormat.format(100 * new Random().nextDouble()));
     }
 
@@ -23,7 +23,7 @@ class Ticket {
      * Getter for the price of a ticket
      * @return The price of the Ticket
      */
-    double getPrice() {
+    public double getPrice() {
         return price;
     }
 

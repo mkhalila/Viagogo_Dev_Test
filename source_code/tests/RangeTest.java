@@ -1,6 +1,7 @@
 package tests;
 
 import main.Range;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -13,7 +14,7 @@ public class RangeTest {
     private Range range3 = new Range(5, 10);
     private Range range4 = new Range(-15, -10);
 
-    @org.junit.Test
+    @Test
     public void getMin() throws Exception {
         assertEquals(-10, range1.getMin());
         assertEquals(-999, range2.getMin());
@@ -21,7 +22,7 @@ public class RangeTest {
         assertEquals(-15, range4.getMin());
     }
 
-    @org.junit.Test
+    @Test
     public void getMax() throws Exception {
         assertEquals(10, range1.getMax());
         assertEquals(999, range2.getMax());
@@ -29,7 +30,7 @@ public class RangeTest {
         assertEquals(-10, range4.getMax());
     }
 
-    @org.junit.Test
+    @Test
     public void isInRange() throws Exception {
         assertEquals(true, range1.isInRange(5));
         assertEquals(true, range1.isInRange(-10));
